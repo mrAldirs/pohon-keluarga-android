@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/home"
+        android:title="Home"/>
+
+    <item
+        android:id="@+id/nav_akun"
+        android:icon="@drawable/akun"
+        android:title="Profil Akun"/>
+
+    <item
+        android:title="Pengaturan"
+        app:showAsAction="always">
+
+        <menu>
+            <item
+                android:id="@+id/nav_undangan"
+                android:icon="@drawable/mail"
+                android:title="Undangan Reuni"/>
+
+            <item
+                android:id="@+id/nav_bagikan"
+                android:icon="@drawable/bagikan"
+                android:title="Bagikan Silsilah Keluarga"/>
+
+            <item
+                android:id="@+id/nav_privacyAkun"
+                android:icon="@drawable/privacy"
+                android:title="Privasi Akun"/>
+        </menu>
+
+    </item>
+
+    <item
+        android:title="Lainnya">
+        <menu>
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/logout"
+                android:title="Keluar Aplikasi"/>
+        </menu>
+    </item>
+
+</menu>

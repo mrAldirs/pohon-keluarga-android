@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:usesCleartextTraffic="true"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Pohon_keluarga"
+        tools:targetApi="31">
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".RegistrasiActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".DashboardActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ImageDetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".DetailAnggota.DetailAnggotaActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".DetailAnggota.ProfilEditActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".DetailAnggota.KontakEditActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".DetailAnggota.LainnyaEditActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Pohon.PohonActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Pohon.PohonInsertActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".HakAkses.AksesSilsilahActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".HakAkses.AksesSilsilahkuActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Reuni.ReuniActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Reuni.ReuniInsertActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Reuni.ReuniDetailActivity"
+            android:screenOrientation="portrait"/>
+    </application>
+
+</manifest>

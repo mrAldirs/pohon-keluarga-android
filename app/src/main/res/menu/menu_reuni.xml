@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_masuk"
+        android:icon="@drawable/mail"
+        android:title="Undangan Masuk"/>
+
+    <item
+        android:id="@+id/menu_terkirim"
+        android:icon="@drawable/mail_send"
+        android:title="Undangan Terkirim"/>
+
+
+</menu>

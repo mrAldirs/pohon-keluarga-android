@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        app:cardElevation="8dp"
+        android:layout_marginTop="2dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:text="Lainnya"
+            android:layout_marginStart="16dp"
+            android:layout_gravity="center_vertical"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/edit"
+            android:text="Edit Data"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/purple_200"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="16dp"/>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pendidikan"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/lainnyaPendidikan"
+        style="@style/TextAppearance.AppCompat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="pendidikan"
+        android:layout_marginStart="24dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pekerjaan"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="16dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/lainnyaPekerjaan"
+        style="@style/TextAppearance.AppCompat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Pekerjaan"
+        android:layout_marginStart="24dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Status Kawin"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="16dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/lainnyaKawin"
+        style="@style/TextAppearance.AppCompat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Kawin"
+        android:layout_marginStart="24dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Golongan Darah"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="16dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/lainnyaGoldar"
+        style="@style/TextAppearance.AppCompat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Golongan Darah"
+        android:layout_marginStart="24dp"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

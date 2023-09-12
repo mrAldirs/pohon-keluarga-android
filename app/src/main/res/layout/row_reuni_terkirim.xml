@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="16dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardElevation="4dp"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:id="@+id/reu_jam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00:00"
+            android:textSize="17sp"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginStart="16dp"/>
+
+        <TextView
+            android:id="@+id/reu_tgl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0000-00-00"
+            android:textSize="17sp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="end"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginEnd="16dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="42dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginHorizontal="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextAppearance.AppCompat.Subhead"
+                android:id="@+id/reu_tempat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tempat"
+                android:drawableStart="@drawable/location"
+                android:drawablePadding="8dp"
+                android:drawableTint="#3F51B5"/>
+
+            <TextView
+                android:id="@+id/reu_pesan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pesan"
+                android:layout_marginTop="6dp"
+                android:drawableStart="@drawable/pesan"
+                android:drawablePadding="8dp"
+                android:drawableTint="#3F51B5"/>
+
+            <TextView
+                android:id="@+id/reu_jumlah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="jumlah kirim"
+                android:layout_marginTop="6dp"
+                android:layout_gravity="end"
+                android:textStyle="italic"
+                android:textColor="@color/purple_700"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

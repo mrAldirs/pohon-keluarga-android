@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/TextAppearance.AppCompat.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TAMBAH ALBUM"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="36dp"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="#00FFFFFF">
+
+        <ImageView
+            android:id="@+id/insImg"
+            android:layout_width="320dp"
+            android:layout_height="420dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/black"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnChoose"
+            android:layout_width="64dp"
+            android:layout_height="72dp"
+            android:textSize="16dp"
+            app:cornerRadius="120dp"
+            android:text="O"
+            android:layout_marginBottom="8dp"
+            android:textColor="#878787"
+            app:strokeWidth="2dp"
+            app:strokeColor="#878787"
+            android:backgroundTint="#FFFFFF"
+            android:layout_gravity="center_horizontal|bottom"/>
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSimpan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Simpan"
+        android:textAllCaps="false"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnBatalkan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Batalkan"
+        android:backgroundTint="#F43636"
+        android:textAllCaps="false"
+        android:layout_marginBottom="8dp"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
