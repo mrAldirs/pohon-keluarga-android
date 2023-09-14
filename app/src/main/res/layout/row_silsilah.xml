@@ -40,7 +40,6 @@
             android:id="@+id/adpStatusKeluarga"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/lock"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_gravity="end|bottom"/>

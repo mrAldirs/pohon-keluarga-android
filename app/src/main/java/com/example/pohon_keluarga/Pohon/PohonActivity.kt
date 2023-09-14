@@ -3,8 +3,10 @@ package com.example.pohon_keluarga.Pohon
 import android.animation.ObjectAnimator
 import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
+import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
@@ -17,6 +19,8 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.pohon_keluarga.AlbumKeluargaFragment
 import com.example.pohon_keluarga.AnggotaKeluargaFragment
+import com.example.pohon_keluarga.Helper.Pdf
+import com.example.pohon_keluarga.QRFragment
 import com.example.pohon_keluarga.R
 import com.example.pohon_keluarga.UrlClass
 import com.example.pohon_keluarga.databinding.ActivityPohonBinding
@@ -69,6 +73,7 @@ class PohonActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItem
             val intent = Intent(this@PohonActivity, PohonInsertActivity::class.java)
             intent.putExtra("kode", paket?.getString("kode").toString())
             intent.putExtra("nodeId", "null")
+            intent.putExtra("status", "null")
             startActivity(intent)
         }
 
@@ -81,6 +86,7 @@ class PohonActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItem
             override fun onBindViewHolder(viewHolder: ViewHolder, data: Any, position: Int) {
                 val node = data as Node
                 viewHolder.mTextView.text = node.nama
+                viewHolder.setNodeStatus(node.status)
                 if (node.img.isNotEmpty()) {
                     Picasso.get().load(node.img).into(viewHolder.image)
                     viewHolder.image.visibility = View.VISIBLE
@@ -115,6 +121,38 @@ class PohonActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItem
     override fun onStart() {
         super.onStart()
         getDataFromWebService(adapter)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_download, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_download -> {
+                val kode = intent?.getStringExtra("kode").toString()
+                val url = "${urlClass.pdf}$kode"
+                var dialog = QRFragment()
+
+                val bundle = Bundle()
+                bundle.putString("url", url)
+                dialog.arguments = bundle
+
+                dialog.show(supportFragmentManager, "qrFragment")
+
+
+//                val intent = Intent(Intent.ACTION_VIEW)
+//                intent.data = Uri.parse(url)
+
+//                val intent = Intent(this@PohonActivity, Pdf::class.java)
+//                intent.putExtra("url", url)
+//                intent.putExtra("kode", kode)
+//                startActivity(intent)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -173,10 +211,11 @@ class PohonActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItem
                             val jsonObject = jsonArray.getJSONObject(i)
                             val id = jsonObject.getString("kd_anggota")
                             val nama = jsonObject.getString("nama_anggota")
+                            val status = jsonObject.getString("status_anggota")
                             val img = jsonObject.getString("img")
                             val idParent = jsonObject.getString("parent_id")
 
-                            data.add(Node(id, nama, img, idParent))
+                            data.add(Node(id, nama, status, img, idParent))
                         }
 
                         // Mengatur data ke adapter dan menampilkan di treeView
@@ -209,6 +248,7 @@ class PohonActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItem
         val mTextView = view.findViewById<TextView>(R.id.textView)
         val image = view.findViewById<ImageView>(R.id.image_view)
         private var nodeId: String = ""
+        private var statusNode: String = ""
 
         init {
             view.setOnClickListener(this)
@@ -217,14 +257,17 @@ class PohonActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItem
         override fun onClick(v: View) {
             // Mengirim intent ke halaman selanjutnya dengan membawa data id
             val nodeId = nodeId
-            val nama = mTextView.text.toString()
+            val status = statusNode
             val kode = (v.context as AppCompatActivity).intent.getStringExtra("kode")
+            val hakAkses = (v.context as AppCompatActivity).intent.getStringExtra("akses")
 
             val frag = PohonDetailFragment()
 
             val bundle = Bundle()
             bundle.putString("kode", kode)
             bundle.putString("nodeId", nodeId)
+            bundle.putString("status", status)
+            bundle.putString("akses", hakAkses)
             frag.arguments = bundle
 
             val fragmentManager = (v.context as AppCompatActivity).supportFragmentManager
@@ -233,6 +276,10 @@ class PohonActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItem
 
         fun setNodeId(id: String) {
             nodeId = id
+        }
+
+        fun setNodeStatus(status: String) {
+            statusNode = status
         }
     }
 
@@ -264,6 +311,6 @@ class PohonActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItem
             }
         }
 
-        return rootNode ?: TreeNode(Node("", "", "", ""))
+        return rootNode ?: TreeNode(Node("", "", "", "",""))
     }
 }

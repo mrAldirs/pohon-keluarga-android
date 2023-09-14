@@ -27,6 +27,7 @@ class PohonInsertActivity : AppCompatActivity() {
     lateinit var mediaHealper: MediaHelper
     var imStr = ""
     var jenkel = ""
+    var statusAnggota = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +38,22 @@ class PohonInsertActivity : AppCompatActivity() {
         urlClass = UrlClass()
         mediaHealper = MediaHelper(this)
 
-        val kode = intent.getStringExtra("kode").toString()
+        val kode = intent?.getStringExtra("kode").toString()
+        val status = intent?.getStringExtra("status").toString()
+        if (status.equals("null")) {
+            statusAnggota = "Kakek"
+        } else if (status.equals("Kakek")) {
+            statusAnggota = "Anak"
+        } else if (status.equals("Anak")) {
+            statusAnggota = "Cucu"
+        } else if (status.equals("Cucu")) {
+            statusAnggota = "Cicit"
+        } else if (status.equals("Cicit")) {
+            statusAnggota = "Canggah"
+        } else if (status.equals("Canggah")) {
+            statusAnggota = "Wareng"
+        }
+        binding.insStatusAnggota.setText(statusAnggota)
 
         binding.btnChoose.setOnClickListener {
             val intent = Intent()
@@ -113,7 +129,7 @@ class PohonInsertActivity : AppCompatActivity() {
                 hm.put("kd_keluarga", intent.getStringExtra("kode").toString())
                 hm.put("nama_anggota", binding.insNamaAnggota.text.toString())
                 hm.put("jenkel", jenkel)
-                hm.put("status_anggota", binding.insStatusAnggota.text.toString())
+                hm.put("status_anggota", statusAnggota)
                 hm.put("parent_id", nodeId.toString())
                 hm.put("image",imStr)
                 hm.put("file",nmFile)

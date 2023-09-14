@@ -137,7 +137,7 @@ class ReuniInsertActivity : AppCompatActivity() {
     }
 
     fun dialog(username: String) {
-        AlertDialog.Builder(this)
+       AlertDialog.Builder(this)
             .setTitle("Info!")
             .setIcon(R.drawable.warning)
             .setMessage("Apakah Anda ingin mengirim undangan ke $username?")

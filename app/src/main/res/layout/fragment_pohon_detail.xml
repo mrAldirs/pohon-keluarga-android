@@ -64,6 +64,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="16dp"
         android:layout_marginTop="8dp"
         app:endIconMode="clear_text">
 
@@ -82,15 +83,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Tambah Anak"
+        android:layout_marginBottom="8dp"
+        android:text="Tambah Anggota Keluarga"
         android:textAllCaps="false"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_hapus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="8dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginHorizontal="16dp"
         android:backgroundTint="#F43636"
         android:text="Hapus Anggota"

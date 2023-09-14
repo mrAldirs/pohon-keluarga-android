@@ -88,6 +88,7 @@ class AksesSilsilahActivity : AppCompatActivity() {
                     showAkses()
                 } else {
                     Toast.makeText(this, "Anda menolak hak akses silsilah dari penguna lain!", Toast.LENGTH_SHORT).show()
+                    showAkses()
                 }
             },
             Response.ErrorListener { error ->
@@ -99,6 +100,34 @@ class AksesSilsilahActivity : AppCompatActivity() {
                 hm.put("mode","acc_akses")
                 hm.put("kd_akses", kode)
                 hm.put("status_akses", status)
+
+                return hm
+            }
+        }
+        val queue = Volley.newRequestQueue(this)
+        queue.add(request)
+    }
+
+    fun delAkses(kode: String) {
+        val request = object : StringRequest(
+            Method.POST, urlClass.urlAkses,
+            Response.Listener { response ->
+                val jsonObject = JSONObject(response)
+                val respon = jsonObject.getString("respon")
+
+                if (respon.equals("1")) {
+                    Toast.makeText(this, "Anda menghapus pemberian hak akses silsilah yang Anda tolak!", Toast.LENGTH_SHORT).show()
+                    showAkses()
+                }
+            },
+            Response.ErrorListener { error ->
+                Toast.makeText(this,"Tidak dapat terhubung ke server", Toast.LENGTH_LONG).show()
+            }) {
+            override fun getParams(): MutableMap<String, String>? {
+                val hm = HashMap<String, String>()
+
+                hm.put("mode","hapus_akses")
+                hm.put("kd_akses", kode)
 
                 return hm
             }

@@ -1,6 +1,7 @@
 package com.example.pohon_keluarga.Adapter
 
 import android.content.Intent
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -45,12 +46,17 @@ class AdapterAkses (val dataKeluarga: List<HashMap<String,String>>, val parent: 
             holder.sts.visibility = View.GONE
         } else if (sts.equals("baru")) {
             holder.sts.visibility = View.VISIBLE
+        } else if (sts.equals("tolak")) {
+            holder.sts.text = "Tolak"
+            holder.sts.setTextColor(Color.RED)
         }
 
         holder.cd.setOnClickListener {
             if (sts.equals("baru")) {
                 parent.dialog(data.get("kd_akses").toString(), data.get("username").toString())
-            } else {
+            } else if (sts.equals("tolak")) {
+                parent.delAkses(data.get("kd_akses").toString())
+            }else {
                 val intentDetail = Intent(it.context, PohonActivity::class.java)
                 intentDetail.putExtra("kode",data.get("kd_keluarga"))
                 intentDetail.putExtra("nm",data.get("nama_keluarga"))

@@ -3,6 +3,7 @@ package com.example.pohon_keluarga
 class UrlClass {
 
     val local = "http://192.168.137.1/api_pohon_keluarga/"
+    val pdf = "http://192.168.137.1/api_pohon_keluarga/pdf.php?id="
 
     // crud_validasi.php
     val validasi = local + "login_service.php"

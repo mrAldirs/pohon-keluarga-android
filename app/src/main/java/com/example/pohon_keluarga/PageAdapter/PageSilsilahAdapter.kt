@@ -3,7 +3,7 @@ package com.example.pohon_keluarga.PageAdapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.example.pohon_keluarga.SilsilahUmumFragment
+import com.example.pohon_keluarga.SilsilahDibagikanFragment
 import com.example.pohon_keluarga.SilsilahkuFragment
 
 class PageSilsilahAdapter (fm: FragmentManager) : FragmentPagerAdapter(fm) {
@@ -17,7 +17,7 @@ class PageSilsilahAdapter (fm: FragmentManager) : FragmentPagerAdapter(fm) {
                 return SilsilahkuFragment()
             }
             1 -> {
-                return SilsilahUmumFragment()
+                return SilsilahDibagikanFragment()
             }
             else -> {
                 return SilsilahkuFragment()
@@ -31,7 +31,7 @@ class PageSilsilahAdapter (fm: FragmentManager) : FragmentPagerAdapter(fm) {
                 return "Silsilahku"
             }
             1 -> {
-                return "Silsilah Umum"
+                return "Akses Dibagikan"
             }
         }
         return super.getPageTitle(position)

@@ -38,15 +38,27 @@ class PohonDetailFragment : DialogFragment() {
 
         val kode = arguments?.get("kode").toString()
         val nodeId = arguments?.get("nodeId").toString()
-        val status = arguments?.get("nama").toString()
+        val status = arguments?.get("status").toString()
+        val hakAkses = arguments?.get("akses").toString()
 
-        binding.dtNama.setText(status)
+        if (status.equals("Wareng")) {
+            binding.btnTambah.visibility = View.GONE
+        } else {
+            binding.btnTambah.visibility = View.VISIBLE
+        }
+
+        if (hakAkses.equals("akses")) {
+            binding.btnHapus.visibility = View.GONE
+        } else {
+            binding.btnHapus.visibility = View.VISIBLE
+        }
 
         binding.btnTambah.setOnClickListener {
             dismiss()
             val intent = Intent(v.context, PohonInsertActivity::class.java)
             intent.putExtra("nodeId", nodeId)
             intent.putExtra("kode", kode)
+            intent.putExtra("status", status)
             v.context.startActivity(intent)
         }
 

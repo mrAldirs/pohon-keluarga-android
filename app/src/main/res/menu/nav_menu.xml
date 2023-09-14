@@ -30,9 +30,9 @@
                 android:title="Bagikan Silsilah Keluarga"/>
 
             <item
-                android:id="@+id/nav_privacyAkun"
-                android:icon="@drawable/privacy"
-                android:title="Privasi Akun"/>
+                android:id="@+id/nav_scanQr"
+                android:icon="@drawable/ic_scan"
+                android:title="Scan QR Silsilah"/>
         </menu>
 
     </item>

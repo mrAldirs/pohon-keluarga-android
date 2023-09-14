@@ -79,6 +79,9 @@ class DashboardActivity : AppCompatActivity() {
                 R.id.nav_bagikan -> {
                     startActivity(Intent(this@DashboardActivity, AksesSilsilahActivity::class.java))
                 }
+                R.id.nav_scanQr -> {
+                    startActivity(Intent(this@DashboardActivity, QrActivity::class.java))
+                }
                 R.id.nav_logout -> {
                     AlertDialog.Builder(this)
                         .setIcon(R.drawable.warning)

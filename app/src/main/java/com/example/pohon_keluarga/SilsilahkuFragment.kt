@@ -128,6 +128,7 @@ class SilsilahkuFragment : Fragment() {
 
                 if (respon.equals("1")) {
                     Toast.makeText(v.context, "Berhasil mengubah status Silsilah Keluarga menjadi $status!", Toast.LENGTH_SHORT).show()
+                    showDataKeluarga("show_data_keluarga")
                 }
             },
             Response.ErrorListener { error ->
@@ -212,7 +213,9 @@ class SilsilahkuFragment : Fragment() {
             holder.md.setText("Moderator : "+data.get("nama_mc"))
 
             val st = data.get("status_keluarga")
-            if (!st.toString().equals("Privat")) {
+            if (st.toString().equals("Privat")) {
+                holder.sts.setBackgroundResource(R.drawable.lock)
+            } else {
                 holder.sts.visibility = View.GONE
             }
 
